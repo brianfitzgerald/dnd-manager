@@ -55,6 +55,10 @@ func main() {
 		soundtrackSpotifyID: "spotify:track:6wUQ3jIw4uM7sK8YxbV7iN",
 		hueLightColor:       Purple,
 	}
+	setups["city"] = Scene{
+		soundtrackSpotifyID: "spotify:track:4TQmCn0e9L7XTiKY4Hk8X4",
+		hueLightColor:       Yellow,
+	}
 
 	sceneKey := os.Args[1]
 	newScene := setups[sceneKey]
