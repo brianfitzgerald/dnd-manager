@@ -1,4 +1,4 @@
-package main
+package manager
 
 import (
 	"fmt"
@@ -29,8 +29,6 @@ const (
 	userID              = "fudgedoodle"
 	reducerPlaylistID   = "7ICCpbSVM2lzKAiLjyKMrZ"
 	redirectURI         = "http://localhost:8080/callback"
-	clientID            = "145df35f322e4809b1ddb730f237e113"
-	clientSecret        = "428bdf9b128044988c58ba00e7548b9b"
 	songStatisticsTable = "reducer-song-statistics"
 	keyDataTable        = "reducer-key-table"
 	refreshURI          = "https://accounts.spotify.com/api/token"
@@ -44,7 +42,6 @@ var (
 	local       = len(os.Args) > 1 && os.Args[1] == "true"
 	testing     = len(os.Args) > 2 && os.Args[2] == "true"
 	hueBridgeIP = "192.168.1.2"
-	hueAPIKey   = "9dwWwpNd14OpjmuEeV4EoYiCY5MAOcEVHm8WvIBE"
 )
 
 func main() {

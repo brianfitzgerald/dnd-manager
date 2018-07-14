@@ -3,3 +3,5 @@
 
 # golang output binary directory
 bin
+
+manager/secrets.go
