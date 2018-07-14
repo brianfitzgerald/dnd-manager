@@ -1,4 +1,4 @@
-package manager
+package main
 
 import (
 	"fmt"
@@ -56,34 +56,42 @@ func main() {
 		hueLightColor:       Purple,
 	}
 
+	sceneKey := os.Args[1]
+	newScene := setups[sceneKey]
+
+	setLights(newScene.hueLightColor)
+
 	auth.SetAuthInfo(clientID, clientSecret)
 	userAuth()
+	playSong(newScene.soundtrackSpotifyID)
+
+}
+
+func playSong(newSongURI string) {
+
 	client := <-ch
 
 	user, err := client.CurrentUser()
 	if err != nil {
 		panic(err)
 	}
+
 	fmt.Println("You are logged in as:", user.ID)
 
-	sceneKey := os.Args[1]
+	songURI := spotify.URI(newSongURI)
 
-	newScene := setups[sceneKey]
-
-	setLights(newScene.hueLightColor)
-	playSong(newScene.soundtrackSpotifyID)
-
-}
-
-func playSong(songID string) {
-
-	client := <-ch
-
-	songURI := spotify.URI(songID)
-
-	err := client.PlayOpt(&spotify.PlayOptions{
+	err = client.PlayOpt(&spotify.PlayOptions{
 		URIs: []spotify.URI{songURI},
 	})
+
+	songID := songURI[14:]
+	track, err := client.GetTrack(spotify.ID(songID))
+	if err != nil {
+		panic(err)
+	}
+
+	println("now playing:")
+	println(track.ExternalURLs["spotify"])
 
 	if err != nil {
 		panic(err)

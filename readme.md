@@ -2,7 +2,7 @@
 
 Lets me set lights and the soundtrack for D&D settings via Hue and Spotify.
 
-Usage: `go run manager/main.go forest`
+Usage: `go run manager/main.go manager/secrets.go forest`
 
 ## Todo
 
