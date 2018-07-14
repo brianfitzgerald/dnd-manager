@@ -23,16 +23,11 @@ const (
 	Green  = 25500
 	Blue   = 46920
 	Yellow = 12750
+	Purple = 46920
 )
 
 const (
-	userID              = "fudgedoodle"
-	reducerPlaylistID   = "7ICCpbSVM2lzKAiLjyKMrZ"
-	redirectURI         = "http://localhost:8080/callback"
-	songStatisticsTable = "reducer-song-statistics"
-	keyDataTable        = "reducer-key-table"
-	refreshURI          = "https://accounts.spotify.com/api/token"
-	createPlaylist      = true
+	redirectURI = "http://localhost:8080/callback"
 )
 
 var (
@@ -55,6 +50,10 @@ func main() {
 	setups["desert"] = Scene{
 		soundtrackSpotifyID: "spotify:track:6A4JieXGIddpzoC56Vcp3N",
 		hueLightColor:       Yellow,
+	}
+	setups["cave"] = Scene{
+		soundtrackSpotifyID: "spotify:track:6wUQ3jIw4uM7sK8YxbV7iN",
+		hueLightColor:       Purple,
 	}
 
 	auth.SetAuthInfo(clientID, clientSecret)
